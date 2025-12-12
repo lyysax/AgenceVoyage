@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="test.test1.VoyageDetailController"
+      spacing="10" prefWidth="300" prefHeight="200">
+
+    <children>
+        <Button text="← Retour" onAction="#onRetour"/>
+        <Label fx:id="labelNom" text="Nom du voyage"/>
+        <Label fx:id="labelDestination" text="Destination"/>
+        <Label fx:id="labelPrix" text="Prix"/>
+    </children>
+</VBox>

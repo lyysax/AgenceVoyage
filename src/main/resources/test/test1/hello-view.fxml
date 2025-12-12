@@ -7,7 +7,9 @@
             fx:controller="test.test1.HelloController">
 
     <top>
-        <Label fx:id="labelTitre" text="Agence" BorderPane.alignment="CENTER"/>
+        <Label fx:id="labelTitre"
+               text="Voyages disponibles"
+               BorderPane.alignment="CENTER"/>
     </top>
 
     <center>
