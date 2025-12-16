@@ -7,7 +7,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import test.test1.modele.Voyage;
 
-public class VoyageDetailController {
+public class ListeVoyages {
 
     @FXML
     private Label labelNom;

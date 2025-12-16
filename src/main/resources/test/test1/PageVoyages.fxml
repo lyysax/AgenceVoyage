@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="test.test1.HelloController">
+            fx:controller="test.test1.AutresPageApp">
 
     <top>
         <Label fx:id="labelTitre"

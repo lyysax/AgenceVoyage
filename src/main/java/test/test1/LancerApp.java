@@ -2,8 +2,8 @@ package test.test1;
 
 import javafx.application.Application;
 
-public class Launcher {
+public class LancerApp {
     public static void main(String[] args) {
-        Application.launch(HelloApplication.class, args);
+        Application.launch(PageApp.class, args);
     }
 }

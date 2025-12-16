@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="test.test1.VoyageDetailController"
+      fx:controller="test.test1.ListeVoyages"
       spacing="10" prefWidth="300" prefHeight="200">
 
     <children>

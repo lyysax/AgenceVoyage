@@ -12,7 +12,7 @@ import test.test1.modele.Voyage;
 
 import java.io.IOException;
 
-public class HelloController {
+public class AutresPageApp {
 
     @FXML
     private Label labelTitre;
@@ -47,11 +47,11 @@ public class HelloController {
             Pane previousRoot = (Pane) scene.getRoot();
 
             // charger le FXML détail
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("voyage-detail.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PageVoyageDetails.fxml"));
             Pane detailRoot = loader.load();
 
             // configurer le contrôleur détail
-            VoyageDetailController controller = loader.getController();
+            ListeVoyages controller = loader.getController();
             controller.setVoyage(voyage);
             controller.setPreviousRoot(previousRoot);
 
