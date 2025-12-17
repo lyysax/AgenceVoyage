@@ -44,12 +44,18 @@
             <ComboBox fx:id="cbActivites"
                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
+            <!-- Hôtel -->
+            <Label text="Hôtel"
+                   GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="cbHotel"
+                      GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
             <!-- Remarques -->
             <Label text="Remarques"
-                   GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                   GridPane.rowIndex="5" GridPane.columnIndex="0"/>
             <TextArea fx:id="taRemarques"
                       prefRowCount="4"
-                      GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                      GridPane.rowIndex="5" GridPane.columnIndex="1"/>
         </GridPane>
 
         <HBox spacing="10.0">

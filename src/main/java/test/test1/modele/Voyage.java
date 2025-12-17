@@ -10,14 +10,26 @@ public class Voyage implements Facturable {
     private String destination;
     private double prix;
     private String desc;
+    private Destination destinationObjet;
+
 
     public Voyage(String nom, String destination, double prix, String desc) {
         this.nom = nom;
         this.destination = destination;
         this.prix = prix;
         this.desc = desc;
+        this.destinationObjet = null; // pas de Destination objet
     }
 
+    // NOUVEAU : constructeur avec Destination
+    public Voyage(String nom, Destination destinationObjet, double prix, String desc) {
+        this.nom = nom;
+        this.destinationObjet = destinationObjet;
+        this.prix = prix;
+        this.desc = desc;
+        // on garde le String destination pour l'affichage
+        this.destination = destinationObjet != null ? destinationObjet.toString() : "";
+    }
 
     public String getDesc() {
         return desc;
@@ -34,6 +46,8 @@ public class Voyage implements Facturable {
     public double getPrix() {
         return prix;
     }
+
+    public Destination getDestinationObjet() { return destinationObjet; }
 
     @Override
     public String toString() {
@@ -110,7 +124,20 @@ public class Voyage implements Facturable {
                 "J12 DUBLIN / FRANCE\n" +
                 "Petit-déjeuner\n" +
                 "Selon vos horaires de vol, transfert à l’aéroport et envol vers la France. A votre arrivée, transfert vers votre ville de départ (si l’option a été souscrite)."));
-        list.add(new Voyage("Voyage Personnalisé", "Destination à choisir", 0, "Choisissez votre voyage de rêve avec CLIMAgence !"));
+        Destination destPerso = new Destination(
+                "Destination à choisir",
+                "Ville au choix",
+                "Voyage personnalisé à construire avec l'agence",
+                false
+        );
+        destPerso.ajouterHotel(new Hotel("Hotel Bleu", "Ville au choix", 3, 80, 20));
+        destPerso.ajouterHotel(new Hotel("Hotel Soleil", "Ville au choix", 4, 120, 15));
+        list.add(new Voyage(
+                "Voyage Personnalisé",
+                destPerso,
+                0,
+                "Choisissez votre voyage de rêve avec CLIMAgence !")
+        );
         return list;
     }
 }
