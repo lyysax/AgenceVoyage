@@ -8,6 +8,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import test.test1.modele.Voyage;
 import java.io.IOException;
+import test.test1.PageReservation;
+import test.test1.PageReservationPerso;
 
 public class PageVoyageDetails {
 
@@ -56,16 +58,30 @@ public class PageVoyageDetails {
         }
 
         try {
-            // vue actuelle (page de détails)
             Pane currentRoot = (Pane) labelNom.getScene().getRoot();
 
-            FXMLLoader loader =
-                    new FXMLLoader(getClass().getResource("PageReservation.fxml"));
+            FXMLLoader loader;
+
+            // Si le nom du voyage contient "personnalisé",
+            // on ouvre la page spéciale
+            if (voyageCourant.getNom().toLowerCase().contains("personnalis")) {
+                loader = new FXMLLoader(getClass().getResource("PageReservationPerso.fxml"));
+            } else {
+                // Sinon, on peut garder PageReservation.fxml (ta page actuelle)
+                loader = new FXMLLoader(getClass().getResource("PageReservation.fxml"));
+            }
+
             Pane reservationRoot = loader.load();
 
-            PageReservation controller = loader.getController();
-            controller.setVoyage(voyageCourant);
-            controller.setPreviousRoot(currentRoot);
+            // on regarde le type de contrôleur obtenu
+            Object controller = loader.getController();
+            if (controller instanceof PageReservationPerso persoCtrl) {
+                persoCtrl.setVoyage(voyageCourant);
+                persoCtrl.setPreviousRoot(currentRoot);
+            } else if (controller instanceof PageReservation resCtrl) {
+                resCtrl.setVoyage(voyageCourant);
+                resCtrl.setPreviousRoot(currentRoot);
+            }
 
             Stage stage = (Stage) labelNom.getScene().getWindow();
             stage.getScene().setRoot(reservationRoot);
@@ -73,4 +89,5 @@ public class PageVoyageDetails {
             e.printStackTrace();
         }
     }
+
 }

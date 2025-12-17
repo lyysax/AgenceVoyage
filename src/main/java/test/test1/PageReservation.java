@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import test.test1.modele.Voyage;
+import javafx.scene.control.ComboBox;
 
 public class PageReservation {
 
@@ -17,7 +18,7 @@ public class PageReservation {
     private TextField tfContract;
 
     @FXML
-    private TextField tfProblem;
+    private ComboBox<Integer> cbNbPersonnes;
 
     @FXML
     private TextArea taDescription;
@@ -34,6 +35,17 @@ public class PageReservation {
     }
 
     @FXML
+    private void initialize() {
+        // Ajouter les nombres 1 à 10 dans le menu déroulant
+        for (int i = 1; i <= 10; i++) {
+            cbNbPersonnes.getItems().add(i);
+        }
+
+        // Sélectionner 1 par défaut
+        cbNbPersonnes.getSelectionModel().select(Integer.valueOf(1));
+    }
+
+    @FXML
     private void onRetour() {
         if (previousRoot == null) return;
 
@@ -43,9 +55,11 @@ public class PageReservation {
 
     @FXML
     private void onValider() {
-        // Pour l’instant on affiche juste dans la console
+        Integer nbPers = cbNbPersonnes.getValue();  // valeur choisie dans le menu
+
         System.out.println("Réservation pour le voyage : "
-                + (voyage != null ? voyage.getNom() : "?")
-                + ", email = " + tfEmail.getText());
+                + (voyage != null ? voyage.getNom() + " " + voyage.getDestination() : "?")
+                + ", email = " + tfEmail.getText()
+                + ", nombre de personnes = " + nbPers);
     }
 }
