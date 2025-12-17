@@ -6,15 +6,15 @@ import java.util.List;
 public class Agence {
 
     private String nom;
-    private List<Voyage> voyages; // simplifié pour le test JavaFX
+    private List<Voyage> voyages;
+    private List<Client> clients;// <<< liste de clients
 
     public Agence(String nom) {
         this.nom = nom;
         this.voyages = new ArrayList<>();
-        // données de test
-        voyages.add(new Voyage("Circuit Bali 7j", "Bali", 1299.0));
-        voyages.add(new Voyage("Séjour Bali 10j", "Bali", 1599.0));
-        voyages.add(new Voyage("Du Bled à Bali - All Inclusive", "Bali", 1899.0));
+        this.clients = new ArrayList<>();
+
+        voyages.addAll(Voyage.voyagesParDefaut());
     }
 
     public String getNom() {
@@ -23,5 +23,24 @@ public class Agence {
 
     public List<Voyage> getVoyages() {
         return voyages;
+    }
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public void ajouterClient(Client client) {
+        if (client != null && !clients.contains(client)) {
+            clients.add(client);
+        }
+    }
+
+    public Client trouverClientParNom(String nom) {
+        for (Client c : clients) {
+            if (c.getNom().equalsIgnoreCase(nom)) {
+                return c;
+            }
+        }
+        return null;
     }
 }

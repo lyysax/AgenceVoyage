@@ -8,11 +8,12 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import test.test1.modele.Agence;
+import test.test1.modele.Client;
 import test.test1.modele.Voyage;
 
 import java.io.IOException;
 
-public class AutresPageApp {
+public class PageVoyages {
 
     @FXML
     private Label labelTitre;
@@ -24,9 +25,16 @@ public class AutresPageApp {
 
     @FXML
     public void initialize() {
-        agence = new Agence("CLIMAgence");
+        agence = AgenceContexte.getAgence();
 
-        labelTitre.setText(agence.getNom());
+        // récupérer le client connecté
+        Client client = AgenceContexte.getClientConnecte();
+        if (client != null) {
+            labelTitre.setText("Client : " + client.getNom());
+        }
+        // IMPORTANT : pas de else -> si client == null,
+        // on laisse le texte mis dans le FXML ("Voyages disponibles")
+
         listViewVoyages.getItems().addAll(agence.getVoyages());
 
         listViewVoyages.setOnMouseClicked(event -> {
@@ -41,21 +49,17 @@ public class AutresPageApp {
 
     private void afficherDetailsDansMemeFenetre(Voyage voyage) {
         try {
-            // root actuel = page de base
             Stage stage = (Stage) listViewVoyages.getScene().getWindow();
             Scene scene = stage.getScene();
             Pane previousRoot = (Pane) scene.getRoot();
 
-            // charger le FXML détail
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PageVoyageDetails.fxml"));
             Pane detailRoot = loader.load();
 
-            // configurer le contrôleur détail
-            ListeVoyages controller = loader.getController();
+            PageVoyageDetails controller = loader.getController();
             controller.setVoyage(voyage);
             controller.setPreviousRoot(previousRoot);
 
-            // remplacer le root de la scène par la page détail
             scene.setRoot(detailRoot);
 
         } catch (IOException e) {

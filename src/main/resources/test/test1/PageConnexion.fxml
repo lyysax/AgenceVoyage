@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="test.test1.PageConnexion"
+      spacing="10">
+
+    <children>
+        <Label text="Connexion client"/>
+        <TextField fx:id="fieldNom" promptText="Nom du client"/>
+        <Button text="Se connecter" onAction="#onSeConnecter"/>
+        <Label fx:id="labelMessage"/>
+    </children>
+</VBox>

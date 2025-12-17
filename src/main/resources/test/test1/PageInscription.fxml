@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="test.test1.PageInscription"
+      alignment="CENTER"
+      spacing="20" prefWidth="400" prefHeight="300">
+
+    <children>
+        <TextField fx:id="fieldNom" promptText="Nom du client"/>
+        <TextField fx:id="fieldNumero" promptText="Numéro de téléphone"/>
+        <Button text="Créer le client" onAction="#onCreerClient"/>
+        <Label fx:id="labelResultat"/>
+    </children>
+</VBox>
