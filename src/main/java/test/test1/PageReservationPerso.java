@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import test.test1.modele.Voyage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class PageReservationPerso {
 
@@ -80,5 +82,15 @@ public class PageReservationPerso {
         System.out.println("Activité : " + activite);
         System.out.println("Remarques : " + remarques);
         System.out.println("=======================================");
+
+        // Fenêtre d'information pour l'utilisateur
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Informations sur le prix");
+        alert.setHeaderText(null); // pas de gros titre au-dessus
+        alert.setContentText(
+                "Pour plus d'informations sur le prix du voyage,\n" +
+                        "contactez l'agence CLIM."
+        );
+        alert.showAndWait();
     }
 }
