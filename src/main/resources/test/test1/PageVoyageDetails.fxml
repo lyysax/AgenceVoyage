@@ -13,5 +13,6 @@
         <Label fx:id="labelDestination" text="Destination"/>
         <Label fx:id="labelPrix" text="Prix"/>
         <Label fx:id="labelDesc" text="Description"/>
+        <Button text="Réserver" onAction="#onReserver"/>
     </children>
 </VBox>
