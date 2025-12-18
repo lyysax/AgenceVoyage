@@ -87,32 +87,60 @@ public class PageReservationPerso {
     }
 
     private void initialiserHotelsParPays() {
-        hotelsParPays.put("Cuba", List.of(
-                new Hotel("Habana Libre", "La Havane", 4, 120, 15),
-                new Hotel("Varadero Beach Resort", "Varadero", 5, 180, 10)
-        ));
-
         hotelsParPays.put("Espagne", List.of(
                 new Hotel("Costa del Sol", "Malaga", 3, 90, 20),
-                new Hotel("Barcelona Center", "Barcelone", 4, 130, 12)
+                new Hotel("Barcelona Center", "Barcelone", 4, 163, 12),
+                new Hotel("Hostal Rambla", "Barcelone", 2, 55, 8),
+                new Hotel("Gran Vía Palace", "Madrid", 5, 250, 5),
+                new Hotel("Seaside Boutique", "Valence", 4, 140, 10)
         ));
 
         hotelsParPays.put("Italie", List.of(
-                new Hotel("Roma Centro", "Rome", 4, 140, 18),
-                new Hotel("Venezia Canal View", "Venise", 5, 200, 8)
+                new Hotel("Albergo Roma", "Rome", 3, 80, 18),
+                new Hotel("Canal View", "Venise", 4, 190, 6),
+                new Hotel("Duomo Guesthouse", "Milan", 2, 60, 12),
+                new Hotel("Palazzo Storico", "Florence", 5, 220, 4),
+                new Hotel("Ligurian Inn", "Gênes", 3, 75, 14)
         ));
 
         hotelsParPays.put("Belgique", List.of(
-                new Hotel("Roma Centro", "Rome", 4, 140, 18),
-                new Hotel("Venezia Canal View", "Venise", 5, 200, 8)
+                new Hotel("Brussels Central", "Bruxelles", 4, 150, 9),
+                new Hotel("Petit Sablon", "Bruxelles", 3, 95, 11),
+                new Hotel("Canal Corner", "Anvers", 2, 65, 16),
+                new Hotel("Ghent Grand", "Gand", 5, 210, 3),
+                new Hotel("Liège Comfort", "Liège", 3, 85, 10)
         ));
+
         hotelsParPays.put("Portugal", List.of(
-                new Hotel("Roma Centro", "Rome", 4, 140, 18),
-                new Hotel("Venezia Canal View", "Venise", 5, 200, 8)
+                new Hotel("Lisbon Horizon", "Lisbonne", 4, 145, 10),
+                new Hotel("Porto Riverside", "Porto", 3, 88, 15),
+                new Hotel("Algarve Sunset", "Faro", 5, 230, 6),
+                new Hotel("Cozy Braga", "Braga", 2, 50, 20),
+                new Hotel("Madeira Retreat", "Funchal", 4, 170, 7)
         ));
-        hotelsParPays.put("Royaume-Unis", List.of(
-                new Hotel("Roma Centro", "Rome", 4, 140, 18),
-                new Hotel("Venezia Canal View", "Venise", 5, 200, 8)
+
+        hotelsParPays.put("Colombie", List.of(
+                new Hotel("Bogotá Plaza", "Bogota", 4, 120, 10),
+                new Hotel("Medellín Suites", "Medellín", 3, 75, 14),
+                new Hotel("Cartagena Colonial", "Cartagena", 5, 200, 5),
+                new Hotel("Cali Comfort", "Cali", 2, 40, 20),
+                new Hotel("Zona Rosa Inn", "Bogota", 3, 68, 12)
+        ));
+
+        hotelsParPays.put("Cuba", List.of(
+                new Hotel("Habana Vieja", "La Havane", 4, 110, 9),
+                new Hotel("Varadero Beach", "Varadero", 5, 210, 6),
+                new Hotel("Trinidad Hostal", "Trinidad", 2, 45, 16),
+                new Hotel("Santiago Colonial", "Santiago de Cuba", 3, 70, 12),
+                new Hotel("Cienfuegos Bay", "Cienfuegos", 3, 65, 11)
+        ));
+
+        hotelsParPays.put("Pérou", List.of(
+                new Hotel("Lima Miraflores", "Lima", 4, 130, 10),
+                new Hotel("Cusco Heritage", "Cusco", 5, 210, 4),
+                new Hotel("Arequipa Comfort", "Arequipa", 3, 80, 14),
+                new Hotel("Puno Lakeview", "Puno", 2, 50, 18),
+                new Hotel("Sacred Valley Lodge", "Urubamba", 4, 150, 7)
         ));
     }
 
