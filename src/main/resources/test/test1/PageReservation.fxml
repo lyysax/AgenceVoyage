@@ -49,6 +49,7 @@
         <HBox spacing="10.0">
             <Button text="Retour" onAction="#onRetour"/>
             <Button text="Valider la réservation" onAction="#onValider"/>
+            <Label fx:id="Resume" text=""/>
         </HBox>
     </children>
 </VBox>

@@ -127,9 +127,7 @@ public class Voyage implements Facturable {
         Destination destPerso = new Destination(
                 "Destination à choisir",
                 "Ville au choix",
-                "Voyage personnalisé à construire avec l'agence",
-                false
-        );
+                "Voyage personnalisé à construire avec l'agence");
         destPerso.ajouterHotel(new Hotel("Hotel Bleu", "Ville au choix", 3, 80, 20));
         destPerso.ajouterHotel(new Hotel("Hotel Soleil", "Ville au choix", 4, 120, 15));
         list.add(new Voyage(

@@ -1,15 +1,17 @@
 package test.test1;
 
+import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import test.test1.modele.Facturable;
 import test.test1.modele.Voyage;
 import javafx.scene.control.ComboBox;
 
-public class PageReservation {
+public class PageReservation implements Facturable {
 
     @FXML
     private TextField tfEmail;
@@ -25,6 +27,7 @@ public class PageReservation {
 
     private Pane previousRoot;
     private Voyage voyage;
+    private int nbPersonnes = 1;
 
     public void setPreviousRoot(Pane previousRoot) {
         this.previousRoot = previousRoot;
@@ -43,6 +46,8 @@ public class PageReservation {
 
         // Sélectionner 1 par défaut
         cbNbPersonnes.getSelectionModel().select(Integer.valueOf(1));
+
+        cbNbPersonnes.setOnAction(e -> nbPersonnes = cbNbPersonnes.getValue());
     }
 
     @FXML
@@ -53,13 +58,30 @@ public class PageReservation {
         stage.getScene().setRoot(previousRoot);
     }
 
+
+    @FXML
+    private Label Resume;
+
     @FXML
     private void onValider() {
         Integer nbPers = cbNbPersonnes.getValue();  // valeur choisie dans le menu
 
-        System.out.println("Réservation pour le voyage : "
+        String recap = "Réservation pour le voyage : "
                 + (voyage != null ? voyage.getNom() + " " + voyage.getDestination() : "?")
-                + ", email = " + tfEmail.getText()
-                + ", nombre de personnes = " + nbPers);
+                + ", \n email = " + tfEmail.getText()
+                + ", \n nombre de personnes = " + nbPers
+                + ", \n" + genererFacture();
+
+        Resume.setText(recap);
+    }
+
+    @Override
+    public double calculerPrixTotal() {
+        return voyage.getPrix() * cbNbPersonnes.getValue();
+    }
+
+    @Override
+    public String genererFacture() {
+        return "Prix du voyage : " + calculerPrixTotal();
     }
 }

@@ -1,5 +1,6 @@
 package test.test1;
 
+import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -135,6 +136,8 @@ public class PageReservationPerso {
     }
 
     @FXML
+    private Label ResumePerso;
+    @FXML
     private void onValider() {
         String email = tfEmail.getText();
         String pays = cbPays.getValue();
@@ -143,24 +146,26 @@ public class PageReservationPerso {
         Hotel hotel = cbHotel.getValue();
         String remarques = taRemarques.getText();
 
-        System.out.println("=== Réservation voyage personnalisé ===");
-        System.out.println("Voyage : " + (voyage != null ? voyage.getNom() : "?"));
-        System.out.println("Email : " + email);
-        System.out.println("Pays choisi : " + pays);
-        System.out.println("Nombre de personnes : " + nbPers);
-        System.out.println("Activité : " + activite);
-        System.out.println("Hôtel choisi : "
-                + (hotel != null ? hotel.getNom() + " (" + hotel.getEtoiles() + "★)" : "aucun"));
-        System.out.println("Remarques : " + remarques);
-        System.out.println("=======================================");
+        String recap =
+                "=== Réservation voyage personnalisé ===\n" +
+                        "Voyage : " + (voyage != null ? voyage.getNom() : "?") + "\n" +
+                        "Email : " + email + "\n" +
+                        "Pays choisi : " + pays + "\n" +
+                        "Nombre de personnes : " + nbPers + "\n" +
+                        "Activité : " + activite + "\n" +
+                        "Hôtel choisi : " +
+                        (hotel != null ? hotel.getNom() + " (" + hotel.getEtoiles() + "★)" : "aucun") + "\n" +
+                        "Remarques : " + remarques + "\n" +
+                        "=======================================";
+
 
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informations sur le prix");
         alert.setHeaderText(null);
         alert.setContentText(
-                "Pour plus d'informations sur le prix du voyage,\n" +
-                        "contactez l'agence CLIM."
+                "Vous allez recevoir un mail de CLIMAgence d'ici 24 heures \n pour le prix du voyage."
         );
+        ResumePerso.setText(recap);
         alert.showAndWait();
     }
 }
