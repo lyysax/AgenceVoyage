@@ -6,7 +6,7 @@ import test.test1.modele.Client;
 public class AgenceContexte {
 
     // Une seule instance d'Agence partagée partout
-    private static final Agence AGENCE = new Agence("Du Bled à Bali");
+    private static final Agence AGENCE = new Agence("CLIMAgence");
 
     // Le client actuellement connecté
     private static Client clientConnecte;
